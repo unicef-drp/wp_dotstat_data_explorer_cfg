@@ -1,0 +1,39 @@
+{
+    "origin": "localhost\/resources\/data_explorer\/unicef_f\/",
+    "SETTINGS_override": {
+        "fusion": {
+            "url": "https:\/\/sdmx.data.unicef.org\/ws\/public\/sdmxapi\/rest",
+            "hasRangeHeader": "!0",
+            "supportsReferencePartial": "!1"
+        }
+    },
+    "unicef_settings": {
+        "indicatorProfileUrl": "..\/..\/..\/indicator-profile",
+        "helpUrl": "\/unicef-data-warehouse-faq\/",
+        "hideTotalLabel": 1
+		
+    },
+    "map_settings": {
+        "UNICEF:GLOBAL_DATAFLOW": {
+            "ref_area_dim_id": "REF_AREA",
+            "geojson_url": "https:\/\/seotest.buzz\/wp-content\/plugins\/dataexplorer_maps\/maps\/CNTR_RG_20M_2020_4326.json"
+        },
+        "UNICEF:CME": {
+            "ref_area_dim_id": "REF_AREA",
+            "geojson_url": "https:\/\/seotest.buzz\/wp-content\/plugins\/dataexplorer_maps\/maps\/test.json"
+        }
+    },
+    "HIERARCHY_override": [],
+    "DATAFLOW": {
+        "datasourceId": "fusion",
+        "agencyId": "UNICEF",
+        "dataflowId": "GLOBAL_DATAFLOW",
+        "version": "1.0",
+        "dataquery": ".CME_MRY0T4.",
+        "period": [
+            2019,2021
+        ],
+        "backendId": "FUSION"
+    },
+    "helpUrl": "https://data.unicef.org/unicef-data-warehouse-faq/"
+}
