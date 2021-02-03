@@ -104,13 +104,10 @@ function addResources(remote_files_path, version) {
     }
 }
 var browserOk = checkBrowser();
-//the var json_config="something" and var version={v_number} must be available in the page
 
 if (browserOk) {
-    //var res_version = "1.0";
-    //var myUrl = document.location.host + document.location.pathname;
-    //var myUrlMD5 = calculateMD5(myUrl);
-    var cfgFileName = json_config + ".json?v=" + version;
+    var res_version = "1.0";
+    var cfgFileName = json_config + ".json?v=" + res_version;
     var cfg_url = pathjoin(["configs", cfgFileName]);
     if (remote_files_path.endsWith("/")) {
         cfg_url = remote_files_path + cfg_url;
@@ -119,11 +116,12 @@ if (browserOk) {
         cfg_url = remote_files_path + "/" + cfg_url;
     }
 
-    //var cfg_url=remote_files_path + "configs/" + json_config + ".json?v="+version;
     loadJson(cfg_url, function (data) {
         var cfg = JSON.parse(data);
-        addResources(remote_files_path, version);
         addScript(remote_files_path + "/js/de_settings/settings.js" + "?v=" + version, function () { addReactScripts(cfg, remote_files_path, version); });
+        addResources(remote_files_path, res_version);
+        addScript(remote_files_path + "/js/de_settings/settings.js" + "?v=" + res_version, function () { addReactScripts(cfg, remote_files_path, res_version); });
+        addScript(remote_files_path+"/js/url_changer.js"+ "?v=" + res_version)
     });
 }
 
