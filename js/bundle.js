@@ -61,6 +61,8 @@ function addReactScripts(de_cfg, remotePath, ver) {
     SETTINGS.unicef = de_cfg.unicef_settings;
     SETTINGS.hierarchy = de_cfg.HIERARCHY_override;
     SETTINGS.map = de_cfg.map_settings;
+    if (de_cfg.helpUrl)
+        SETTINGS.helpUrl = de_cfg.helpUrl;
 
     var basepath = "/de/static/js/";
     var to_add = ["bundle.js", "2.chunk.js", "main.chunk.js"];
@@ -71,54 +73,7 @@ function addReactScripts(de_cfg, remotePath, ver) {
     }
 }
 
-function addHelpBox(helpUrl) {
 
-    if (helpUrl && helpUrl.trim() != "") {
-        var helpDiv = document.createElement("div");
-        helpDiv.id = "div_de_help";
-        helpDiv.classList.add("pull-right");
-
-        var closebtnDiv = document.createElement("div");
-        closebtnDiv.classList.add("closebtn");
-        closebtnDiv.onclick = function () { document.getElementById('div_de_help').style.display = 'none'; }
-        closebtn_icon = document.createElement("span");
-        closebtn_icon.classList.add("pt-icon-standard");
-        closebtn_icon.classList.add("pt-icon-cross");
-
-        closebtnDiv.appendChild(closebtn_icon);
-        helpDiv.appendChild(closebtnDiv);
-
-        var lnk1 = document.createElement("a");
-        lnk1.href = helpUrl;
-        lnk1.appendChild(document.createElement("span"));
-        lnk1.getElementsByTagName("span")[0].classList.add("pt-icon-standard");
-        lnk1.getElementsByTagName("span")[0].classList.add("pt-icon-help");
-
-        var lnk2 = document.createElement("a");
-        lnk2.href = helpUrl;
-        lnk2.appendChild(document.createElement("span"));
-        lnk2.appendChild(document.createElement("span"));
-        lnk2.getElementsByTagName("span")[0].classList.add("help_text");
-        lnk2.getElementsByTagName("span")[0].innerText = "Need help using this tool?"
-        lnk2.getElementsByTagName("span")[1].classList.add("help_text_small");
-        lnk2.getElementsByTagName("span")[1].innerText = "Help"
-
-        helpDiv.appendChild(lnk1);
-        helpDiv.appendChild(lnk2);
-
-        document.body.appendChild(helpDiv);
-
-        //Hide on scroll
-        document.addEventListener('scroll', function(e){
-            if (window.scrollY>0){
-                document.getElementById("div_de_help").style.display="none";
-            }
-            else{
-                document.getElementById("div_de_help").style.display="block";
-            }
-        })
-    }
-}
 function addScript(src, callback) {
     var s = document.createElement('script');
     s.setAttribute('src', src);
@@ -145,7 +100,6 @@ function addResources(remote_files_path, version) {
     for (var i = 0; i < to_add_js.length; i++) {
         var l = document.createElement("script");
         l.setAttribute("src", remote_files_path + to_add_js[i] + "?v=" + version);
-        console.log(l)
         document.head.appendChild(l);
     }
 }
@@ -170,8 +124,6 @@ if (browserOk) {
         var cfg = JSON.parse(data);
         addResources(remote_files_path, version);
         addScript(remote_files_path + "/js/de_settings/settings.js" + "?v=" + version, function () { addReactScripts(cfg, remote_files_path, version); });
-        if (data.helpUrl != "undefined")
-            addHelpBox(cfg.helpUrl);
     });
 }
 

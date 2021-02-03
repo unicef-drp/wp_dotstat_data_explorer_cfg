@@ -16,7 +16,7 @@
     "map_settings": {
         "PCO:PAKISTAN_TEST":{
             "ref_area_dim_id": "REF_AREA",
-            "geojson_url": "http:\/\/localhost\/wp-content\/plugins\/wp_dotstat_data_explorer_cfg\/maps\/pakistan_provinces_codes.json"
+            "geojson_url": "https://data.unicef.org/wp-content/plugins/wp_dotstat_data_explorer_cfg/maps/pakistan_provinces_codes.json"
         }
     },
     "HIERARCHY_override": [],
