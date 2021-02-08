@@ -377,11 +377,12 @@
 
 
 /*Fix issues in Drupal*/
-
-.menu-explore ol,
-ul {
+.menu-explore ul {
     margin-top: unset;
+
 }
 
-
+.dropdown-container ul {
+    margin-top: unset;
+}
 /*Fix issues in Drupal end*/
