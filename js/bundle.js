@@ -55,8 +55,48 @@ function loadJson(url, onsuccess) {
     xmlhttp.send();
 }
 
+function getUrlParams() {
+    const url = new URL(window.location);
+    const ret = [];
+    let dq = url.searchParams.get("dq");
+    if (dq) { dq = dq.replace(" ", "+"); }
+
+    let startPeriod = url.searchParams.get("startPeriod");
+    let endPeriod = url.searchParams.get("endPeriod");
+    if (startPeriod) startPeriod = parseInt(startPeriod);
+    if (endPeriod) endPeriod = parseInt(endPeriod);
+
+    ret.push({ param: "dataquery", val: dq });
+    if (startPeriod) {
+        ret.push({ param: "startPeriod", val: startPeriod });
+    }
+    if (endPeriod) {
+        ret.push({ param: "endPeriod", val: endPeriod});
+    }
+    ret.push({ param: "ag", val: url.searchParams.get("ag") });
+    ret.push({ param: "df", val: url.searchParams.get("df") });
+    ret.push({ param: "ver", val: url.searchParams.get("ver") });
+
+    return ret;
+}
+
 function addReactScripts(de_cfg, remotePath, ver) {
     DATAFLOW = de_cfg.DATAFLOW;
+    const urlParams = getUrlParams();
+    for (var i = 0; i < urlParams.length; i++) {
+        if (urlParams[i].val) {
+            if (urlParams[i].param == "startPeriod") {
+                DATAFLOW.period[0] = urlParams[i].val;
+            }
+            else if (urlParams[i].param == "endPeriod") {
+                DATAFLOW.period[1] = urlParams[i].val;
+            }
+            else {
+                DATAFLOW[urlParams[i].param] = urlParams[i].val;
+            }
+        }
+    }
+
     SETTINGS.sdmx.datasources = de_cfg.SETTINGS_override;
     SETTINGS.unicef = de_cfg.unicef_settings;
     SETTINGS.hierarchy = de_cfg.HIERARCHY_override;
@@ -66,7 +106,7 @@ function addReactScripts(de_cfg, remotePath, ver) {
 
     var basepath = "/de/static/js/";
     var to_add = ["bundle.js", "2.chunk.js", "main.chunk.js"];
-    for (var i = 0; i < to_add.length; i++) {
+    for (i = 0; i < to_add.length; i++) {
         var node = document.createElement('script')
         node.setAttribute('src', remotePath + basepath + to_add[i] + "?v=" + ver);
         document.body.appendChild(node);
@@ -120,8 +160,8 @@ if (browserOk) {
         var cfg = JSON.parse(data);
         addScript(remote_files_path + "/js/de_settings/settings.js" + "?v=" + version, function () { addReactScripts(cfg, remote_files_path, version); });
         addResources(remote_files_path, res_version);
-        addScript(remote_files_path + "/js/de_settings/settings.js" + "?v=" + res_version, function () { addReactScripts(cfg, remote_files_path, res_version); });
-        addScript(remote_files_path+"/js/url_changer.js"+ "?v=" + res_version)
+        //addScript(remote_files_path + "/js/de_settings/settings.js" + "?v=" + res_version, function () { addReactScripts(cfg, remote_files_path, res_version); });
+        addScript(remote_files_path + "/js/url_changer.js" + "?v=" + res_version)
     });
 }
 

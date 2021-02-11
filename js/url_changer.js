@@ -11,8 +11,6 @@
     document.getElementById('root').addEventListener('unicef_dataflowLoaded', function (evt) {
         let url = window.location.href;
 
-        console.log("URL")
-        console.log(url)
         //replace the trainling / if present
         let newDq = evt.detail.dataquery.replace(/\/$/, "");
 
