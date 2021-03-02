@@ -59,30 +59,36 @@ function getUrlParams() {
     const url = new URL(window.location);
     const ret = [];
     let dq = url.searchParams.get("dq");
-    if (dq) { dq = dq.replace(" ", "+"); }
+    if (dq) { 
+        dq = dq.replace(" ", "+"); 
+        ret.push({ param: "dataquery", val: dq });
+    }
 
     let startPeriod = url.searchParams.get("startPeriod");
     let endPeriod = url.searchParams.get("endPeriod");
     if (startPeriod) startPeriod = parseInt(startPeriod);
     if (endPeriod) endPeriod = parseInt(endPeriod);
 
-    ret.push({ param: "dataquery", val: dq });
     if (startPeriod) {
         ret.push({ param: "startPeriod", val: startPeriod });
     }
     if (endPeriod) {
         ret.push({ param: "endPeriod", val: endPeriod});
     }
-    ret.push({ param: "ag", val: url.searchParams.get("ag") });
-    ret.push({ param: "df", val: url.searchParams.get("df") });
-    ret.push({ param: "ver", val: url.searchParams.get("ver") });
+    ret.push({ param: "agencyId", val: url.searchParams.get("ag") });
+    ret.push({ param: "dataflowId", val: url.searchParams.get("df") });
+    ret.push({ param: "ver", val: url.searchParams.get("version") });
 
     return ret;
 }
 
 function addReactScripts(de_cfg, remotePath, ver) {
     DATAFLOW = de_cfg.DATAFLOW;
+
+    console.log("DATAFLOW1")
+    console.log(DATAFLOW)
     const urlParams = getUrlParams();
+
     for (var i = 0; i < urlParams.length; i++) {
         if (urlParams[i].val) {
             if (urlParams[i].param == "startPeriod") {
@@ -158,7 +164,7 @@ if (browserOk) {
 
     loadJson(cfg_url, function (data) {
         var cfg = JSON.parse(data);
-        addScript(remote_files_path + "/js/de_settings/settings.js" + "?v=" + version, function () { addReactScripts(cfg, remote_files_path, version); });
+        addScript(remote_files_path + "/js/de_settings/settings.js" + "?v=" + res_version, function () { addReactScripts(cfg, remote_files_path, res_version); });
         addResources(remote_files_path, res_version);
         //addScript(remote_files_path + "/js/de_settings/settings.js" + "?v=" + res_version, function () { addReactScripts(cfg, remote_files_path, res_version); });
         addScript(remote_files_path + "/js/url_changer.js" + "?v=" + res_version)
