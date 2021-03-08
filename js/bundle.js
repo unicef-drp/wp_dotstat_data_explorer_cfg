@@ -85,8 +85,6 @@ function getUrlParams() {
 function addReactScripts(de_cfg, remotePath, ver) {
     DATAFLOW = de_cfg.DATAFLOW;
 
-    console.log("DATAFLOW1")
-    console.log(DATAFLOW)
     const urlParams = getUrlParams();
 
     for (var i = 0; i < urlParams.length; i++) {

@@ -242,7 +242,7 @@
 /*dataflow navigator*/
 
 .dfNav_item {
-    background-color: #f0f0f1;
+    /*background-color: #f0f0f1;*/
     text-align: center;
     margin-bottom: 12px;
     font-size: 14px;
@@ -258,7 +258,7 @@
 }
 
 .dfNav_link {
-    color: #0297c9;
+    color: #f0f0f1;
     padding: 6px 6px 6px 6px;
     text-decoration: underline;
 }
@@ -317,6 +317,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    border-radius: 6px;
     z-index: 100;
 }
 
@@ -335,13 +336,14 @@
 
 .mapFiltersGroup {
     margin: 16px 0 12px 0;
+    background-color:rgb(240, 240, 241);
+    border-radius: 6px;
 /*    display: flex;
     flex-direction: column;*/
 }
 
 .mapSubfilterGroup{
     display: flex;
-    background-color:rgb(240, 240, 241);
     padding:1px 6px 1px 6px;
     /*flex-direction: column;*/
 }
