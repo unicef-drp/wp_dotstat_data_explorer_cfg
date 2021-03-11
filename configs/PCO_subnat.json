@@ -10,7 +10,8 @@
     "unicef_settings": {
         "indicatorProfileUrl": "..\/..\/..\/indicator-profile",
         "helpUrl": "\/unicef-data-warehouse-faq\/",
-        "hideTotalLabel": 1
+        "hideTotalLabel": 1,
+        "roundData": 0
     },
     "map_settings": {
         "PCO:PAKISTAN_TEST": {
