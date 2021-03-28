@@ -37,9 +37,9 @@
         "agencyId": "UNICEF",
         "dataflowId": "GLOBAL_DATAFLOW",
         "version": "1.0",
-        "dataquery":"...",
+        "dataquery":".NT_ANT_HAZ_NE2..",
         "period": [
-            2019,
+            2018,
             2021
         ],
         "backendId": "FUSION"

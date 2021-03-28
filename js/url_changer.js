@@ -36,9 +36,25 @@
             urlRepl = addQueryParam(urlRepl, "endPeriod", evt.detail.requestArgs.endPeriod);
         }
         else {
-
             urlRepl = urlRepl.replace(/endPeriod=[^&]*/, "endPeriod=" + evt.detail.requestArgs.endPeriod);
         }
+
+        //is the lastnobservations active? add it
+        if (evt.detail.requestArgs.lastnobservations) {
+            //The lastnobs
+            if (urlRepl.indexOf("lastnobservations") === -1) {
+                urlRepl = addQueryParam(urlRepl, "lastnobservations", evt.detail.requestArgs.lastnobservations);
+            }
+            else {
+                urlRepl = urlRepl.replace(/lastnobservations=[^&]*/, "lastnobservations=" + evt.detail.requestArgs.lastnobservations);
+            }
+        }//else completely remove the param if it exists
+        else{
+            if (urlRepl.indexOf("lastnobservations") !== -1) {
+                urlRepl = urlRepl.replace(/&lastnobservations=[^&]*/, "");
+            }
+        }
+
 
         window.history.pushState({}, "UNICEF Data", urlRepl);
     });

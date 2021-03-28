@@ -59,26 +59,33 @@ function getUrlParams() {
     const url = new URL(window.location);
     const ret = [];
     let dq = url.searchParams.get("dq");
-    if (dq) { 
-        dq = dq.replace(" ", "+"); 
+    if (dq) {
+        dq = dq.replace(" ", "+");
         ret.push({ param: "dataquery", val: dq });
     }
 
     let startPeriod = url.searchParams.get("startPeriod");
     let endPeriod = url.searchParams.get("endPeriod");
-    if (startPeriod) startPeriod = parseInt(startPeriod);
-    if (endPeriod) endPeriod = parseInt(endPeriod);
-
     if (startPeriod) {
+        startPeriod = parseInt(startPeriod);
         ret.push({ param: "startPeriod", val: startPeriod });
     }
     if (endPeriod) {
-        ret.push({ param: "endPeriod", val: endPeriod});
+        endPeriod = parseInt(endPeriod);
+        ret.push({ param: "endPeriod", val: endPeriod });
     }
+
     ret.push({ param: "agencyId", val: url.searchParams.get("ag") });
     ret.push({ param: "dataflowId", val: url.searchParams.get("df") });
     ret.push({ param: "ver", val: url.searchParams.get("version") });
 
+
+    let lastn = url.searchParams.get("lastnobservations");
+    if (lastn) {lastn = parseInt(lastn);
+        ret.push({ param: "lastnobservations", val: lastn });
+    }
+
+    //https://sdmx.data.unicef.org/ws/public/sdmxapi/rest/data/UNICEF,GLOBAL_DATAFLOW,1.0/UNICEF_ESA.NT_ANT_HAZ_NE2.?dimensionAtObservation=AllDimensions&startPeriod=2010&endPeriod=2020&lastnobservations=1
     return ret;
 }
 
