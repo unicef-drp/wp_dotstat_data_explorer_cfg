@@ -11,7 +11,7 @@
         "indicatorProfileUrl": "..\/..\/..\/indicator-profile",
         "helpUrl": "\/unicef-data-warehouse-faq\/",
         "hideTotalLabel": 1,
-        "roundData": 1,
+		"roundData": 1,
         "showDataflowNavigator": 1,
         "stickyDims": [
             "REF_AREA",
@@ -31,9 +31,9 @@
         "agencyId": "UNICEF",
         "dataflowId": "GLOBAL_DATAFLOW",
         "version": "1.0",
-        "dataquery":"...",
+        "dataquery":"....",
         "period": [
-            2019,
+            2018,
             2021
         ],
         "backendId": "FUSION"

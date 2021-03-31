@@ -157,7 +157,7 @@ function addResources(remote_files_path, version) {
 var browserOk = checkBrowser();
 
 if (browserOk) {
-    var res_version = "1.0";
+    var res_version = "1.01";
     var cfgFileName = json_config + ".json?v=" + res_version;
     var cfg_url = pathjoin(["configs", cfgFileName]);
     if (remote_files_path.endsWith("/")) {

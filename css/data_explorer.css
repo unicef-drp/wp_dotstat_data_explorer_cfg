@@ -56,7 +56,7 @@
 #root [type=reset]:focus,
 #root [type=submit]:focus,
 #root button:focus {
-    color: unset !important;
+    color: unset;
     outline: none !important;
     outline-offset: none !important;
 }
