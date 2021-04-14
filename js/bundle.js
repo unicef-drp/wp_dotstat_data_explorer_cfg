@@ -81,7 +81,8 @@ function getUrlParams() {
 
 
     let lastn = url.searchParams.get("lastnobservations");
-    if (lastn) {lastn = parseInt(lastn);
+    if (lastn) {
+        lastn = parseInt(lastn);
         ret.push({ param: "lastnobservations", val: lastn });
     }
 
@@ -121,6 +122,7 @@ function addReactScripts(de_cfg, remotePath, ver) {
         var node = document.createElement('script')
         node.setAttribute('src', remotePath + basepath + to_add[i] + "?v=" + ver);
         document.body.appendChild(node);
+        console.log(node)
     }
 }
 
@@ -157,8 +159,15 @@ function addResources(remote_files_path, version) {
 var browserOk = checkBrowser();
 
 if (browserOk) {
-    var res_version = "1.01";
-    var cfgFileName = json_config + ".json?v=" + res_version;
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0
+    var yyyy = today.getFullYear();
+    var hours = String(today.getHours()).padStart(2, '0');
+    today = yyyy+mm+dd+hours;
+
+    //var res_version = "1.01";
+    var cfgFileName = json_config + ".json?v=" + today;
     var cfg_url = pathjoin(["configs", cfgFileName]);
     if (remote_files_path.endsWith("/")) {
         cfg_url = remote_files_path + cfg_url;
@@ -169,10 +178,9 @@ if (browserOk) {
 
     loadJson(cfg_url, function (data) {
         var cfg = JSON.parse(data);
-        addScript(remote_files_path + "/js/de_settings/settings.js" + "?v=" + res_version, function () { addReactScripts(cfg, remote_files_path, res_version); });
-        addResources(remote_files_path, res_version);
-        //addScript(remote_files_path + "/js/de_settings/settings.js" + "?v=" + res_version, function () { addReactScripts(cfg, remote_files_path, res_version); });
-        addScript(remote_files_path + "/js/url_changer.js" + "?v=" + res_version)
+        addScript(remote_files_path + "/js/de_settings/settings.js" + "?v=" + today, function () { addReactScripts(cfg, remote_files_path, today); });
+        addResources(remote_files_path, today);
+        addScript(remote_files_path + "/js/url_changer.js" + "?v=" + today)
     });
 }
 
