@@ -122,7 +122,6 @@ function addReactScripts(de_cfg, remotePath, ver) {
         var node = document.createElement('script')
         node.setAttribute('src', remotePath + basepath + to_add[i] + "?v=" + ver);
         document.body.appendChild(node);
-        console.log(node)
     }
 }
 

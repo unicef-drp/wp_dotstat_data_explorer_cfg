@@ -2,6 +2,7 @@
 
 #root {
     margin-bottom: 2vh;
+    font-size: 1rem;
 }
 
 
@@ -338,19 +339,22 @@
     margin: 16px 0 12px 0;
     background-color:rgb(240, 240, 241);
     border-radius: 6px;
+    font-size: 12px;
 /*    display: flex;
     flex-direction: column;*/
 }
 
 .mapSubfilterGroup{
     display: flex;
-    padding:1px 6px 1px 6px;
+    /*padding:1px 4px 1px 4px;*/
+    margin: 4px 4px 4px 4px;
     /*flex-direction: column;*/
 }
 
 .mapSubfilterLbl {
     display: flex;
-    margin: 0 8px 8px 0;
+    /*margin: 0 8px 8px 0;*/
+    margin-right: 5px;
     font-weight: bold;
     /*color:#106ba3;*/
     /*flex-grow: 1;*/
@@ -361,6 +365,13 @@
     /*flex-grow: 4;*/
     flex-grow: 1;
     flex-basis: 0;
+}
+#map_val{
+    font-weight: bold;
+    font-size: 16px;
+}
+#map_attribs{
+    margin-top: 8px;
 }
 
 #de_map .legend {
