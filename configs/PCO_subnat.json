@@ -14,7 +14,7 @@
         "roundData": 0
     },
     "map_settings": {
-        "PCO:PAKISTAN_TEST": {
+        "PCO:PAKISTAN_CO": {
             "ref_area_dim_id": "REF_AREA",
             "geojson_url": "https://data.unicef.org/wp-content/plugins/wp_dotstat_data_explorer_cfg/maps/pakistan_provinces_codes.json",
             "areas": [
@@ -33,7 +33,7 @@
     "DATAFLOW": {
         "datasourceId": "fusion",
         "agencyId": "PCO",
-        "dataflowId": "PAKISTAN_TEST",
+        "dataflowId": "PAKISTAN_CO",
         "version": "1.0",
         "dataquery": "PAK.._T._T._T._T._T.",
         "period": [
