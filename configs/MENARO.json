@@ -10,37 +10,22 @@
     "unicef_settings": {
         "indicatorProfileUrl": "..\/..\/..\/indicator-profile",
         "helpUrl": "\/unicef-data-warehouse-faq\/",
-        "hideTotalLabel": 0,
+        "hideTotalLabel": 1,
         "roundData": 0
-    },
-    "map_settings": {
-        "PCO:PAKISTAN_CO": {
-            "ref_area_dim_id": "REF_AREA",
-            "geojson_url": "https://data.unicef.org/wp-content/plugins/wp_dotstat_data_explorer_cfg/maps/pakistan_provinces_codes.json",
-            "areas": [
-                "BAL",
-                "AJK",
-                "FAT",
-                "GB",
-                "ICT",
-                "SIN",
-                "PUN",
-                "KPK"
-            ]
-        }
     },
     "HIERARCHY_override": [],
     "DATAFLOW": {
         "datasourceId": "fusion",
-        "agencyId": "PCO",
-        "dataflowId": "PAKISTAN_CO",
+        "agencyId": "MENARO",
+        "dataflowId": "MENARO",
         "version": "1.0",
-        "dataquery": "PAK.._T._T._T._T._T.",
+        "dataquery": ".._T._T._T",
         "period": [
             2016,
             2021
         ],
-        "backendId": "FUSION"
+        "backendId": "FUSION",
+        "lastnobservations":1
     },
     "helpUrl": "https://data.unicef.org/unicef-data-warehouse-faq/"
 }
