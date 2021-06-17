@@ -113,8 +113,12 @@ function addReactScripts(de_cfg, remotePath, ver) {
     SETTINGS.unicef = de_cfg.unicef_settings;
     SETTINGS.hierarchy = de_cfg.HIERARCHY_override;
     SETTINGS.map = de_cfg.map_settings;
+
     if (de_cfg.helpUrl)
         SETTINGS.helpUrl = de_cfg.helpUrl;
+    if (de_cfg.timeDimensionOrder){
+        SETTINGS.timeDimensionOrder = de_cfg.timeDimensionOrder;
+    }
 
     var basepath = "/de/static/js/";
     var to_add = ["bundle.js", "2.chunk.js", "main.chunk.js"];

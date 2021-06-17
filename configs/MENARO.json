@@ -27,5 +27,6 @@
         "backendId": "FUSION",
         "lastnobservations":1
     },
-    "helpUrl": "https://data.unicef.org/unicef-data-warehouse-faq/"
+    "helpUrl": "https://data.unicef.org/unicef-data-warehouse-faq/",
+    "timeDimensionOrder": "asc"
 }
