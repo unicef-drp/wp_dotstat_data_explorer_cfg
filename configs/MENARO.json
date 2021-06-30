@@ -8,7 +8,8 @@
         }
     },
     "unicef_settings": {
-        "indicatorProfileUrl": "..\/..\/..\/indicator-profile",
+        "indicatorProfileUrl": "https://data.unicef.org/indicator-profile",
+        "indicatorCodelistID":"CL_MENARO_INDICATOR",
         "helpUrl": "\/unicef-data-warehouse-faq\/",
         "hideTotalLabel": 1,
         "roundData": 0

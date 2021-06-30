@@ -9,6 +9,7 @@
     },
     "unicef_settings": {
         "indicatorProfileUrl": "..\/..\/..\/indicator-profile",
+        "indicatorCodelistID":"CL_UNICEF_INDICATOR",
         "helpUrl": "\/unicef-data-warehouse-faq\/",
         "hideTotalLabel": 1,
 		"roundData": 1,
