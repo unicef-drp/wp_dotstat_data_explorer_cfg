@@ -11,7 +11,7 @@
         "indicatorProfileUrl": "..\/..\/..\/indicator-profile",
         "helpUrl": "\/unicef-data-warehouse-faq\/",
         "hideTotalLabel": 1,
-		"roundData": 1,
+		"roundData": 3,
         "showDataflowNavigator": 1,
         "stickyDims": [
             "REF_AREA",
