@@ -12,7 +12,7 @@
         "indicatorCodelistID":"CL_MENARO_INDICATOR",
         "helpUrl": "\/unicef-data-warehouse-faq\/",
         "hideTotalLabel": 1,
-        "roundData": 0
+        "roundData": 1
     },
     "HIERARCHY_override": [],
     "DATAFLOW": {
