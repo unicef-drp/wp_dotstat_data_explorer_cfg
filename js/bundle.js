@@ -60,7 +60,7 @@ function getUrlParams() {
     const ret = [];
     let dq = url.searchParams.get("dq");
     if (dq) {
-        dq = dq.replace(" ", "+");
+        dq = dq.replaceAll(" ", "+");
         ret.push({ param: "dataquery", val: dq });
     }
 
