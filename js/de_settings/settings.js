@@ -38,6 +38,7 @@ var I18N = {
         "de.visualisation.toolbar.action.fullscreen": "Full screen",
         "de.visualisation.toolbar.action.customize": "Customise",
         "de.visualisation.toolbar.action.download": "Download",
+        "de.visualisation.toolbar.action.download.excel.selection.long": "Selection in Excel (long format)",
         "de.visualisation.toolbar.action.download.excel.selection": "Selection in Excel (current table layout)",
         "de.visualisation.toolbar.action.download.csv.selection": "Selection in CSV (long format)",
         "de.visualisation.toolbar.action.download.csv.all": "Full data in CSV (long format)",
