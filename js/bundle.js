@@ -113,6 +113,7 @@ function addReactScripts(de_cfg, remotePath, ver) {
     SETTINGS.unicef = de_cfg.unicef_settings;
     SETTINGS.hierarchy = de_cfg.HIERARCHY_override;
     SETTINGS.map = de_cfg.map_settings;
+    SETTINGS.downloadFullEnabled = de_cfg.downloadFullEnabled;
 
     if (de_cfg.helpUrl)
         SETTINGS.helpUrl = de_cfg.helpUrl;

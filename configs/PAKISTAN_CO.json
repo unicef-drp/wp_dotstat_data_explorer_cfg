@@ -42,5 +42,6 @@
         ],
         "backendId": "FUSION"
     },
-    "helpUrl": "https://data.unicef.org/unicef-data-warehouse-faq/"
+    "helpUrl": "https://data.unicef.org/unicef-data-warehouse-faq/",
+    "downloadFullEnabled":"0"
 }
