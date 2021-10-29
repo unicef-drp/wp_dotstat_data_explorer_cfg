@@ -10,7 +10,7 @@
     "unicef_settings": {
         "indicatorProfileUrl": "..\/..\/..\/indicator-profile",
         "helpUrl": "\/unicef-data-warehouse-faq\/",
-        "hideTotalLabel": 0,
+        "hideTotalLabel": 1,
         "roundData": 0
     },
     "map_settings": {
