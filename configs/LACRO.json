@@ -17,7 +17,7 @@
         "agencyId": "UNICEF_LACRO",
         "dataflowId": "LACRO",
         "version": "1.0",
-        "dataquery": "..",
+        "dataquery": "...",
         "period": [
             2016,
             2022
