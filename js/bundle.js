@@ -93,6 +93,8 @@ function getUrlParams() {
 function addReactScripts(de_cfg, remotePath, ver) {
     DATAFLOW = de_cfg.DATAFLOW;
 
+    console.log(SETTINGS)
+
     const urlParams = getUrlParams();
 
     for (var i = 0; i < urlParams.length; i++) {
@@ -127,6 +129,7 @@ function addReactScripts(de_cfg, remotePath, ver) {
         var node = document.createElement('script')
         node.setAttribute('src', remotePath + basepath + to_add[i] + "?v=" + ver);
         document.body.appendChild(node);
+        console.log(i)
     }
 }
 
@@ -184,7 +187,7 @@ if (browserOk) {
         var cfg = JSON.parse(data);
         addScript(remote_files_path + "/js/de_settings/settings.js" + "?v=" + today, function () { addReactScripts(cfg, remote_files_path, today); });
         addResources(remote_files_path, today);
-        addScript(remote_files_path + "/js/url_changer.js" + "?v=" + today)
+        //addScript(remote_files_path + "/js/url_changer.js" + "?v=" + today)
     });
 }
 
