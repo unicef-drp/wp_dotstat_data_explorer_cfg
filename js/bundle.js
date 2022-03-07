@@ -1,3 +1,5 @@
+
+//This function just checks the browser version and prevents loading the app if the Browser is not supported
 function checkBrowser() {
     var ES6_Error = false;
 
@@ -24,6 +26,7 @@ function checkBrowser() {
     return true;
 }
 
+//Joins the paths given the parts and the separator
 const pathjoin = (parts, sep) => {
     var separator = sep || '/';
     var replace = new RegExp(separator + '{1,}', 'g');
@@ -31,6 +34,7 @@ const pathjoin = (parts, sep) => {
 
 }
 
+//Loads a json file and calls the onsuccess callback, ToDo: add a onerror callback
 function loadJson(url, onsuccess) {
     var xmlhttp = new XMLHttpRequest();
     /*xmlhttp.setRequestHeader("Accept", 'application/json');
@@ -55,6 +59,7 @@ function loadJson(url, onsuccess) {
     xmlhttp.send();
 }
 
+//Gets and returns the URL params that are needed by the data explorer.
 function getUrlParams() {
     const url = new URL(window.location);
     const ret = [];
@@ -90,11 +95,14 @@ function getUrlParams() {
     return ret;
 }
 
+//Add the react scripts to the page
 function addReactScripts(de_cfg, remotePath, ver) {
+    //The DATAFLOW part of the configuration
     DATAFLOW = de_cfg.DATAFLOW;
-
+    //Get the url params
     const urlParams = getUrlParams();
 
+    //For each URL param override the default config in DATAFLOW
     for (var i = 0; i < urlParams.length; i++) {
         if (urlParams[i].val) {
             if (urlParams[i].param == "startPeriod") {
@@ -109,6 +117,7 @@ function addReactScripts(de_cfg, remotePath, ver) {
         }
     }
 
+    //OVverride the default settings
     SETTINGS.sdmx.datasources = de_cfg.SETTINGS_override;
     SETTINGS.unicef = de_cfg.unicef_settings;
     SETTINGS.hierarchy = de_cfg.HIERARCHY_override;
@@ -121,6 +130,7 @@ function addReactScripts(de_cfg, remotePath, ver) {
         SETTINGS.timeDimensionOrder = de_cfg.timeDimensionOrder;
     }
 
+    //Create a <script> element in th DOM and add the js files 
     var basepath = "/de/static/js/";
     var to_add = ["bundle.js", "2.chunk.js", "main.chunk.js"];
     for (i = 0; i < to_add.length; i++) {
@@ -130,13 +140,15 @@ function addReactScripts(de_cfg, remotePath, ver) {
     }
 }
 
-
+//Add a script element to the dom and calls the callback
 function addScript(src, callback) {
     var s = document.createElement('script');
     s.setAttribute('src', src);
     s.onload = callback;
     document.body.appendChild(s);
 }
+
+//Adds ..css and additional .js resources
 function addResources(remote_files_path, version) {
     var to_add_css = [
         "/css/data_explorer.css",
@@ -160,9 +172,12 @@ function addResources(remote_files_path, version) {
         document.head.appendChild(l);
     }
 }
+
+//Checks if the browser is supported 
 var browserOk = checkBrowser();
 
 if (browserOk) {
+    //Create a string containing the current timestamp
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0
