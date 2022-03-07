@@ -117,7 +117,7 @@ function addReactScripts(de_cfg, remotePath, ver) {
 
     if (de_cfg.helpUrl)
         SETTINGS.helpUrl = de_cfg.helpUrl;
-    if (de_cfg.timeDimensionOrder){
+    if (de_cfg.timeDimensionOrder) {
         SETTINGS.timeDimensionOrder = de_cfg.timeDimensionOrder;
     }
 
@@ -168,9 +168,12 @@ if (browserOk) {
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0
     var yyyy = today.getFullYear();
     var hours = String(today.getHours()).padStart(2, '0');
-    today = yyyy+mm+dd+hours;
+    //Forces the load a new version every 24/4=6 hours (reduce when the .js is stable)
+    hours = Math.floor(hours / 4);
+    today = yyyy + mm + dd + hours;
 
-    //var res_version = "1.01";
+    //json_config is the id passed by the hosting environment (Wordpress, Drupal...)
+    //remote files path is hardcoded in the hosting env (should be a param too but we have been asked to reduce to the minimum the params)
     var cfgFileName = json_config + ".json?v=" + today;
     var cfg_url = pathjoin(["configs", cfgFileName]);
     if (remote_files_path.endsWith("/")) {
@@ -180,11 +183,19 @@ if (browserOk) {
         cfg_url = remote_files_path + "/" + cfg_url;
     }
 
-    loadJson(cfg_url, function (data) {
-        var cfg = JSON.parse(data);
-        addScript(remote_files_path + "/js/de_settings/settings.js" + "?v=" + today, function () { addReactScripts(cfg, remote_files_path, today); });
-        addResources(remote_files_path, today);
-        addScript(remote_files_path + "/js/url_changer.js" + "?v=" + today)
-    });
+    //loaad the json and adds to the page in the callback fun
+    loadJson(cfg_url,
+        function (data) {
+            //Load the cfg file
+            var cfg = JSON.parse(data);
+            //settings.js contains the default settings that will be overridden
+            addScript(remote_files_path + "/js/de_settings/settings.js" + "?v=" + today,
+                function () {
+                    addReactScripts(cfg, remote_files_path, today);
+                }
+            );
+            addResources(remote_files_path, today);
+            addScript(remote_files_path + "/js/url_changer.js" + "?v=" + today)
+        });
 }
 
