@@ -191,11 +191,13 @@ if (browserOk) {
             //settings.js contains the default settings that will be overridden
             addScript(remote_files_path + "/js/de_settings/settings.js" + "?v=" + today,
                 function () {
+                    //Add all the DataExplorer scripts
                     addReactScripts(cfg, remote_files_path, today);
                 }
             );
+            //Add the remaining resources
             addResources(remote_files_path, today);
-            addScript(remote_files_path + "/js/url_changer.js" + "?v=" + today)
+            //addScript(remote_files_path + "/js/url_changer.js" + "?v=" + today)
         });
 }
 
