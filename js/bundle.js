@@ -47,10 +47,10 @@ function loadJson(url, onsuccess) {
                 onsuccess(data);
             }
             else if (xmlhttp.status == 400) {
-                alert('There was an error 400');
+                console.warn('There was an error 400');
             }
             else {
-                alert('something else other than 200 was returned');
+                console.warn('something else other than 200 was returned');
             }
         }
     };
@@ -183,8 +183,8 @@ if (browserOk) {
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0
     var yyyy = today.getFullYear();
     var hours = String(today.getHours()).padStart(2, '0');
-    //Forces the load a new version every 24/4=6 hours (reduce when the .js is stable)
-    hours = Math.floor(hours / 4);
+    //Forces the load a new version every 24/6=4 hours (reduce when the .js is stable)
+    hours = Math.floor(hours / 6);
     today = yyyy + mm + dd + hours;
 
     //json_config is the id passed by the hosting environment (Wordpress, Drupal...)
