@@ -189,7 +189,7 @@ if (browserOk) {
 
     //json_config is the id passed by the hosting environment (Wordpress, Drupal...)
     //remote files path is hardcoded in the hosting env (should be a param too but we have been asked to reduce to the minimum the params)
-    var cfgFileName = json_config + ".json?v=" + today;
+    var cfgFileName = json_config.trim() + ".json?v=" + today;
     var cfg_url = pathjoin(["configs", cfgFileName]);
     if (remote_files_path.endsWith("/")) {
         cfg_url = remote_files_path + cfg_url;
