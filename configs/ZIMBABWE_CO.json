@@ -1,0 +1,29 @@
+{
+    "origin": "localhost\/resources\/data_explorer\/unicef_f\/",
+    "SETTINGS_override": {
+        "fusion": {
+            "url": "https:\/\/sdmx.data.unicef.org\/ws\/public\/sdmxapi\/rest",
+            "hasRangeHeader": "!0",
+            "supportsReferencePartial": "!1"
+        }
+    },
+    "unicef_settings": {
+        "hideTotalLabel": 0,
+        "roundData": 0
+    },
+    "HIERARCHY_override": [],
+    "DATAFLOW": {
+        "datasourceId": "fusion",
+        "agencyId": "ZIMBABWE_CO",
+        "dataflowId": "ZIMBABWE_CO",
+        "version": "1.0",
+        "dataquery": "ZWE..",
+        "period": [
+            2016,
+            2023
+        ],
+        "backendId": "FUSION"
+    },
+    "downloadFullEnabled":"0",
+    "timeDimensionOrder": "asc"
+}
