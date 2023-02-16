@@ -11,6 +11,24 @@
         "hideTotalLabel": 0,
         "roundData": 0
     },
+    "map_settings": {
+        "ZIMBABWE_CO:ZIMBABWE_CO": {
+            "ref_area_dim_id": "REF_AREA",
+            "geojson_url": "https://data.unicef.org/wp-content/plugins/wp_dotstat_data_explorer_cfg/maps/zimbabwe_lev1.json",
+            "areas": [
+                "BUL",
+                "MAN",
+                "MASH_E",
+                "MASH_C",
+                "MASH_W",
+                "MAT_S",
+                "MAT_N",
+                "MID",
+                "MAS",
+                "HAR"
+            ]
+        }
+    },
     "HIERARCHY_override": [],
     "DATAFLOW": {
         "datasourceId": "fusion",
@@ -24,6 +42,7 @@
         ],
         "backendId": "FUSION"
     },
-    "downloadFullEnabled":"0",
+    "downloadFullEnabled": "0",
+    "helpUrl": "https://data.unicef.org/unicef-data-warehouse-faq/",
     "timeDimensionOrder": "asc"
 }
