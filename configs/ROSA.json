@@ -1,0 +1,30 @@
+{
+    "origin": "localhost\/resources\/data_explorer\/unicef_f\/",
+    "SETTINGS_override": {
+        "fusion": {
+            "url": "https:\/\/sdmx.data.unicef.org\/ws\/public\/sdmxapi\/rest",
+            "hasRangeHeader": "!0",
+            "supportsReferencePartial": "!1"
+        }
+    },
+    "unicef_settings": {
+        "hideTotalLabel": 1,
+        "roundData": 0
+    },
+    "HIERARCHY_override": [],
+    "DATAFLOW": {
+        "datasourceId": "fusion",
+        "agencyId": "ROSA",
+        "dataflowId": "ROSA",
+        "version": "1.0",
+        "dataquery": "UNICEF_SA..",
+        "period": [
+            2016,
+            2023
+        ],
+        "backendId": "FUSION"
+    },
+    "downloadFullEnabled": "0",
+    "helpUrl": "https://data.unicef.org/unicef-data-warehouse-faq/",
+    "timeDimensionOrder": "asc"
+}
