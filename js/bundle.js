@@ -82,7 +82,7 @@ function getUrlParams() {
 
     ret.push({ param: "agencyId", val: url.searchParams.get("ag") });
     ret.push({ param: "dataflowId", val: url.searchParams.get("df") });
-    ret.push({ param: "ver", val: url.searchParams.get("version") });
+    ret.push({ param: "version", val: url.searchParams.get("ver") });
 
 
     let lastn = url.searchParams.get("lastnobservations");
