@@ -34,8 +34,7 @@
         "version": "1.0", 
         "dataquery":"....",
         "period": [
-            2018,
-            2023
+            2018
         ],
         "backendId": "FUSION" 
     },

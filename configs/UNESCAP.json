@@ -23,7 +23,7 @@
         "dataquery": "..G01_01_01..A.",
         "period": [
             2016,
-            2023
+            2024
         ],
         "backendId": "EUROSTAT",
         "lastnobservations":0
